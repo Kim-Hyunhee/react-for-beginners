@@ -15,43 +15,21 @@
   <script type="text/babel">
     const root = document.getElementById('root');
 
-    function Title() {
+    const App = () => {
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        // setCounter(counter + 1);
+        setCounter((current) => current + 1);
+      };
+
       return (
-        <h3 id="title" onMouseEnter={() => console.log('mouse enter')}>
-          Hello I'm a span
-        </h3>
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
       );
-    }
+    };
 
-    const Button = () => (
-      <button
-        style={{
-          backgroundColor: 'tomato',
-        }}
-        onClick={() => console.log("i'm click")}
-      >
-        Click me
-      </button>
-    );
-
-    // const btn = React.createElement(
-    //   'button',
-    //   {
-    //     onClick: () => console.log("i'm click"),
-    //     style: {
-    //       backgroundColor: 'tomato',
-    //     },
-    //   },
-    //   'Click me'
-    // );
-
-    const Contatiner = () => (
-      <div>
-        <Title />
-        <Button />
-      </div>
-    );
-
-    ReactDOM.render(<Contatiner />, root);
+    ReactDOM.render(<App />, root);
   </script>
 </html>
