@@ -77,7 +77,7 @@
           <div>
             <label htmlFor="kilometer">Kilometer</label>
             <input
-              value={inverted ? amount / 1000 : amount}
+              value={inverted ? amount / 1.6093445 : amount}
               type="number"
               id="kilometer"
               placaholder="kilometer"
@@ -86,12 +86,12 @@
             />
           </div>
           <div>
-            <label htmlFor="meter">Meter</label>
+            <label htmlFor="miles">Miles</label>
             <input
-              value={inverted ? amount : amount * 1000}
+              value={inverted ? amount : amount * 1.6093445}
               type="number"
-              id="meter"
-              placaholder="meter"
+              id="miles"
+              placaholder="miles"
               disabled={!inverted}
               onChange={onChange}
             />
