@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import styles from './Home.module.css';
+import styled from '../components/Movie.module.css';
 
 const Detail = () => {
   const { id } = useParams();
@@ -18,13 +20,20 @@ const Detail = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Detail</h1>
-      <div>
-        <img src={movie.medium_cover_image} alt={movie.title} />
-        <h2>{movie.title}</h2>
+    <div className={styles.container}>
+      <h1 className={styles.detail}>Detail</h1>
+      <div className={styled.movie}>
+        <img
+          className={styled.movie__img}
+          src={movie.medium_cover_image}
+          alt={movie.title}
+        />
+        <h2 className={styled.movie__title}>{movie.title}</h2>
+        <h3 className={styled.movie__year}>{movie.year}</h3>
         <p>{movie.description_full}</p>
-        <ul>{movie.genres && movie.genres.map((g) => <li key={g}>{g}</li>)}</ul>
+        <ul className={styled.movie__genres}>
+          {movie.genres && movie.genres.map((g) => <li key={g}>{g}</li>)}
+        </ul>
       </div>
     </div>
   );
